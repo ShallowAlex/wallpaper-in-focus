@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Oct 16 14:48:35 2019
-
 @author: Alex
 """
 
@@ -10,20 +9,16 @@ import shutil
 from PIL import Image
 import re
 import time
+import sys
 
-# adname = []
-# ad = []
+
 #生成路径
 env_dic = os.environ
 IMG_PATH = env_dic["LOCALAPPDATA"] + "/Packages/Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy/LocalState/Assets/"
 
-# #读取其他图标名
-# Path = './设置'
-# if os.path.exists(Path):
-#     with open(Path + '/adname.txt','r') as f:
-#         ad = f.read()
-#         ad = ad[2:-2]
-#     adname = re.split(r"[\'\,\s]+",ad)
+# 切换到当前文件的路径
+os.chdir(sys.path[0])
+print(os.getcwd())
 
 #创建横板、竖版文件夹
 if os.path.exists('./横版'):
@@ -59,4 +54,3 @@ print('-'.center(50, '-'))
 for i in range(3, -1, -1):
     print('\r'+('即将退出，剩余时间：%d秒'%i).center(38), end='') # end='' 默认为换行符\n ，修改为空不换行
     time.sleep(1) # 暂停1秒
-#input("按任意键退出：")
